@@ -552,8 +552,8 @@ video {
   align-items: center;
   overflow: hidden;
   background-color: transparent;
-  -webkit-backdrop-filter: blur(0px);
-  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
   height: 50px;
   /* border-bottom: 1px solid black; */
   /* mix-blend-mode: difference; */
@@ -842,7 +842,7 @@ video {
   padding-bottom: 1%;
 }
 .Carousel1-content div p{
-  
+  font-size: 22px;
   width: 90%;
 }
  .Carousel1-content h3,.Carousel2-content h3, .Carousel2-content p {
@@ -865,12 +865,12 @@ video {
 
 .Carousel1-content button{
   margin-top: 1%;
-  width: 158px;
+  width: 222px;
   height: 50px;
   background-color: #e99500;
   color:white;
   border-radius: 11px;
-  margin-right: 11px;
+
  
 }
 
@@ -879,8 +879,10 @@ video {
 }
 
 @media (max-width:850px){
-
-  #HeroDiv1,#HeroDiv2{
+#HeroDiv1{
+  height:80vh;
+}
+  #HeroDiv2{
   
     
     height:100vh;
@@ -909,16 +911,19 @@ video {
     /* text-align: center; */
     margin-left: 0%
   }
-  .Carousel1-content div{
-    /* display: flex;
-    justify-content: center; */
-  }
-  /* .Carousel1-content div p{
-    text-align: center;
+.Carousel1-content  {
+    /* text-align: center;  */
+    transform: translate(-50%,-50%);
+    top: 50%;
     
-  } */
-
- 
+ }
+.Carousel1-content div p{
+  
+  width: 100%;
+}
+ .Carousel1-content h3{
+  font-size: 35px;
+ }
   .Hero1Animation3D,.Hero2Animation3D{
     top:0px;
     
@@ -938,10 +943,9 @@ video {
 @media (max-width:765px){
 
   /* ,.Carousel2-content h3 */
-  .Carousel1-content h3{
-    /* font-size: 5vh; */
-    
-  }
+ .Carousel1-content h3{
+  font-size: 30px;
+ }
   .Carousel1-content,.Carousel2-content {
 
     width: 96%;
@@ -958,66 +962,71 @@ video {
 }
 
 @media (max-width:625px){
-      .Carousel1-content {
 
-        padding-left: 5%;
-    }
-  .Carousel1-content div p {
-    width: 91%;
-  }
-  .Carousel2-content h3{
-    font-size: 5vh;
-  }
-  .Carousel1-content h3{
-    /* font-size: 4vh; */
-    
-  }
+ .Carousel1-content h3{
+  font-size: 25px;
+ }
 
   .Carousel1-content button{
     margin-top: 2%;
-    font-size: 75%;
-    width: 120px;
-    margin-right: 3px;
+    /* font-size: 75%; */
+    /* width: 120px; */
+    
   }
+  .Carousel1-content  {
+
+    top: 55%;
+    
+ }
 }
 
 @media (max-width:460px){
-  /* ,.Carousel2-content h3, .Carousel2-content p */
-        .Carousel1-content {
-          padding-left: 1%;
-        }
 
-  .Carousel1-content h3, .Carousel1-content p {
-  padding-bottom: 3%;
+
+  .Carousel1-content h3 {
+  padding-bottom: 2%;
+  font-size: 33px;
 }
-.Carousel1-content h3{
+/* .Carousel1-content h3{
   font-size: 4vh;
-}
+} */
   .Carousel2-content h3{
     font-size: 5vh;
     
   }
-  .Carousel1-content div p,.Carousel2-content div p {
-    width: 95%;
+  .Carousel1-content div p,
+  .Carousel2-content div p {
+    width: 80%;
+    /*94%*/
   }
+  .Carousel1-content div:nth-child(2) {
+    display: ruby;
+}
   .Carousel2-content p{
-    font-size: 15px;
+    /* font-size: 15px; */
   }
     .Carousel1-content button{
  
-    width: 105px;
-    height: 40px;
+    width: 150px;
+    /* height: 40px;*/
   }
 }
-@media (max-width:300px){
+@media (max-width:330px){
 
   .Carousel1-content{
     width :100%;
-    top: 31%;
+   padding-left: 5%;
   }
+  .Carousel1-content h3{
+  font-size: 22px;
+  /* margin-bottom: 2%; */
+}
+
     .Carousel1-content div p {
       font-size: 17px;
       width:100%;
+      padding-bottom: 1%;
+      
     }
 }
 @media (max-width:250px){
@@ -1025,14 +1034,24 @@ video {
     width: 700px;
     height: 1000px;
   }
-  
+    .Carousel1-content h3{
+  font-size: 33px;
+  padding-bottom: 0%;
+  /* margin-bottom: 2%; */
+}
+
+    .Carousel1-content div p {
+    
+      padding-bottom: 0%;
+      
+    }
 }
  @media (min-height:750px) and (min-width:750px){
 
   #HeroDiv1,#HeroDiv2{
   
     
-    height:100vh;
+    height:85vh;
 
     
     
@@ -1333,7 +1352,7 @@ video {
 /***************************************************How it works********************************************/
 
 #HowItWorksSection{
-  margin-top: 10%;
+  margin-top: 100px;
   width: 100%;
   position: relative;
   
@@ -1349,7 +1368,15 @@ width: 3606.75px;
     background-color: #e99500;
     transform: rotate(11deg) translate(-100px, 0px);
 }
-
+.LineColored2{
+    width: 3781.75px;
+    height: 398.5px;
+    position: absolute;
+   top: 86%;
+    display:flex;
+    background-color: #1781eb;
+    transform: rotate(-19deg) translate(-142px, 0px);
+}
 .TabsButton{
   top: 4%;
   position: relative;
@@ -1363,6 +1390,7 @@ width: 3606.75px;
   border: 3px solid white;
   display: flex;
    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
 }
 .TabsButton span{
   position: absolute;
@@ -1370,21 +1398,26 @@ width: 3606.75px;
   background-color: #1781eb;
   border-radius: 13px;
   
-
+    top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+    display: flex; /* To center content inside span if any */
+  justify-content: center;
+  align-items: center;
 }
 .TabsButton span:nth-child(1){
  
-  transform: translateX(24%);
+  transform: translate(-50%, -50%) translateX(-45%);
 }
 .TabsButton span:nth-child(1).TabOpen{
-  transform: translateX(24%) scale(1.3);
+  transform: translate(-50%, -50%) translateX(-45%) scale(1.3);
 }
 .TabsButton span:nth-child(2){
  
-  transform: translateX(254%);
+  transform:translate(-50%, -50%) translateX(123%);
 }
 .TabsButton span:nth-child(2).TabOpen{
-  transform: translateX(254%) scale(1.3);
+  transform: translate(-50%, -50%) translateX(123%) scale(1.3);
 }
 
 
@@ -1504,31 +1537,44 @@ width: 5278.75px;
     
   }
 
-  .TabsButton{
 
-  width: 233px;
-      height: 23px;
 }
-.TabsButton span{
-  font-size: 12px;
-  
+@media (max-width:460px) {
+    .TabsButton{
+
+      width: 90%;
+          height: 23px;
+    }
+    .TabsButton span{
+      font-size: 12px;
+      
+    }
+
 }
-  .TabsButton span:nth-child(1){
- 
-  transform: translateX(5%);
-}
+
+@media (max-width:345px) {
+      .TabsButton{
+
+      width: 98%;
+          
+    }
+    .TabsButton span{
+      font-size: 9.5px;
+      
+    }
 .TabsButton span:nth-child(1).TabOpen{
-  transform: translateX(5%) scale(1.3);
+  transform: translate(-50%, -50%) translateX(-45%) scale(1.7);
 }
+
 .TabsButton span:nth-child(2){
  
-  transform: translateX(201%);
+  transform:translate(-50%, -50%) translateX(128%);
 }
 .TabsButton span:nth-child(2).TabOpen{
-  transform: translateX(201%) scale(1.3);
-}
+  transform: translate(-50%, -50%) translateX(128%) scale(1.7);
 }
 
+}
 @media (max-width:250px){
   #HowItWorksSection{
     width: 700px;
@@ -1715,6 +1761,35 @@ color:#1781eb
     border-top: 1px solid rgba(0, 0, 0, 0.59);
     height: 150px;
 }
+.grid-cols-2 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+
+  }
+
+  @media (min-width: 640px) {
+    .sm\:grid-cols-4 {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
+}
+@media (min-width: 1024px) {
+    .lg\:grid-cols-6 {
+        grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width:1023px) {
+  #Footer2{
+    text-align: center;
+  }
+
+.lg\:mx-auto.text-left {
+    /* width: 28vh; */
+    text-align: center;
+}
+
+
+  
+}
 
 @media (max-width:250px) {
 
@@ -1780,8 +1855,16 @@ color:#1781eb
 
 main.grid.min-h-full.place-items-center.bg-white.px-6.py-24.sm\:py-32.lg\:px-8 {
     background: radial-gradient(#1781eb, white);
+  
+      text-shadow: 0 0 3px #19191ac5;
 }
 .text-center
  {
     color: white;
+}
+.mt-10 {
+    margin-top: 1.5rem !important;
+}
+.mt-6 {
+    margin-top: 0.5rem !important;
 }

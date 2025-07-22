@@ -1,7 +1,17 @@
 import { FadeInAnimation } from "./FadeInAnimation";
-import mainImg from "./Assets/HomeMainImgFinale.png"
+import mainImg from "./Assets/HomeMainImgFinale.png";
+import { useState, useEffect } from "react";
 function MainHeroSection(){
-
+    const [width,setWidth] = useState(window.innerWidth);
+    
+    useEffect(()=>{
+        function handleResize() {
+            setWidth(window.innerWidth);
+            
+          }
+          window.addEventListener("resize", handleResize)
+          handleResize();
+    },[])
  return (
     <div id="HeroDiv1">
 
@@ -11,19 +21,18 @@ function MainHeroSection(){
 
                     
                     <h3>
-                     <FadeInAnimation > {"WHERE DIGNITY MEETS CARE"}</FadeInAnimation>
+                     <FadeInAnimation > WHERE DIGNITY {width <= 460 ? <><br/></>:<></> } MEETS CARE</FadeInAnimation>
                     </h3>
                     <FadeInAnimation > 
                         <p> 
-                            We connects skilled, compassionate barbers to nursing homes across Ontario to offer in-home haircuts to elderly residents. We make personal care mobile, professional and rooted in respect.
-                                
+                           Connects skilled, compassionate barbers to nursing homes {width > 518 ? <><br/> to offer in home haircuts. </> :"" }  
                         </p>
-                        <a href=""><button> Book a Visit  </button> </a> <a href=""><button> Join As a Barber</button></a>
+                        <a href="#HowItWorksSection"><button> Learn more  </button> </a> 
                     </FadeInAnimation>
                     
             </div>
             
-            <div className="Hero1Animation3D">
+            <div className="Hero1Animation3D" id="HomeHeroSection">
                 <img src={mainImg} alt="MainHeroSection" />
 
 

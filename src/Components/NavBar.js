@@ -1,5 +1,6 @@
 import {useState} from 'react';
-import {Link, useLocation,Outlet} from 'react-router-dom'
+import {Link, useLocation,Outlet} from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 function NavBar(){
 
     const [listOfContentsOpen,setOpenContents] = useState({"mobileMenu":false,"dropdownBar":false,"mobileDropdown":false });
@@ -47,7 +48,7 @@ function NavBar(){
                   </ul>
                   <ul id='Logo2'>
                       <li>
-                          { listOfContentsOpen.mobileMenu|| listOfContentsOpen["mobileDropdown"] ?"" :<Link to="/"> WCC {/*<img id='HomeLogo' src={LogoImg} alt='Home logo' width="100" height="80" /> */} </Link>}
+                          { listOfContentsOpen.mobileMenu|| listOfContentsOpen["mobileDropdown"] ?"" :<HashLink to="/#HomeHeroSection"> WCC {/*<img id='HomeLogo' src={LogoImg} alt='Home logo' width="100" height="80" /> */} </HashLink>}
                       </li>
                   </ul>
                 </>)
@@ -56,7 +57,7 @@ function NavBar(){
                   ( <>
                     <ul id='Logo2'>
                       <li>
-                          {  listOfContentsOpen["mobileDropdown"] ?"" :<Link to="/"> WCC {/*<img id='HomeLogo' src={LogoImg} alt='Home logo' width="100" height="80" /> */} </Link>}
+                          {  listOfContentsOpen["mobileDropdown"] ?"" :<HashLink to="/#HomeHeroSection"> WCC {/*<img id='HomeLogo' src={LogoImg} alt='Home logo' width="100" height="80" /> */} </HashLink>}
                       </li>
                   </ul>
 
@@ -71,10 +72,10 @@ function NavBar(){
 
 
                 <ul id="nav-links2">
-                    <li id="HowItWorksLink" ><a href='#HowItWorksSection' >How It Works</a></li>  
-                    <li id="AboutUsLink" ><Link to='/about-us'>About Us</Link></li> {/*Link to react router to use*/}
-                    <li id="OurPricingLink" ><Link to='/#PricingSection'>Our Pricing</Link></li>
-                    <li id="ContactSection" ><a href='#Footer2' >Contact Us</a></li>
+                    <li id="HowItWorksLink" ><HashLink to='#HowItWorksSection' >How It Works</HashLink></li>  
+                    <li id="AboutUsLink" ><HashLink to='/about-us#AboutUsHeroSection'>About Us</HashLink></li> 
+                    <li id="OurPricingLink" ><HashLink to='/#PricingSection'>Our Pricing</HashLink></li>
+                    <li id="ContactSection" ><HashLink to='#Footer2' >Contact Us</HashLink></li>
                     
                     {/* onMouseEnter={handleCloseDropdown} */}
 
@@ -92,10 +93,10 @@ function NavBar(){
 
                 <div className={ listOfContentsOpen.mobileMenu ? `mobile-content-menu2 ${classNameOpen}` : 'mobile-content-menu2'}>
 
-                    <li id="HowItWorksLink"  ><a href='#HowItWorksSection' onPointerEnter={()=>setTimeout(closeAll,500)}>How It Works</a></li>  
-                    <li id="AboutUsLink" ><a href='#BioCareer' onPointerEnter={()=>setTimeout(closeAll,500)}>About Us</a></li> {/*Link to react router to use*/}
-                    <li id="OurPricingLink" ><a href='#OurPricingSection'onPointerEnter={()=>setTimeout(closeAll,500)} >Our Pricing</a></li>
-                    <li id="ContactSection" ><a href='#ContactForm' onPointerEnter={()=>setTimeout(closeAll,500)}>Contact Us</a></li>
+                    <li id="HowItWorksLink"  ><HashLink to='#HowItWorksSection' onPointerEnter={()=>setTimeout(closeAll,500)}>How It Works</HashLink></li>  
+                    <li id="AboutUsLink" ><HashLink to='/about-us#AboutUsHeroSection' onPointerEnter={()=>setTimeout(closeAll,500)}>About Us</HashLink></li> {/*Link to react router to use*/}
+                    <li id="OurPricingLink" ><HashLink to='/#PricingSection'onPointerEnter={()=>setTimeout(closeAll,500)} >Our Pricing</HashLink></li>
+                    <li id="ContactSection" ><HashLink to='#Footer2' onPointerEnter={()=>setTimeout(closeAll,500)}>Contact Us</HashLink></li>
 
 
                 </div>

@@ -1,8 +1,10 @@
 import { useState,useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useForm, ValidationError } from '@formspree/react'
 function HowItWorks(){
     const [isActiveTab,setActiveTab] = useState('Tab1');
     const [width,setWidth] = useState(window.innerWidth);
+    const [state, handleSubmit] = useForm("xkgzjrrz");
     const location = useLocation();
     useEffect(()=>{
         function handleResize() {
@@ -20,7 +22,7 @@ function HowItWorks(){
         </div>
         <div id="Tab1"  className={isActiveTab == 'Tab1' ? "TabSection open" : "TabSection"}>
                 <div className="FormHowItWorkSection" >
-                  <form  method='POST'>
+                  <form  method='POST'onSubmit={handleSubmit}>
                     <h5>Booking Form</h5>
                     <br/>
                     <br/>
@@ -40,13 +42,13 @@ function HowItWorks(){
                         <label className='labelForm'> Number of resident to serve</label><br/>
                         <input type='number' min='1' max='30'  name='date' placeholder='Resident numbers to serve' required/> <br/>
                     </div>
-                    <button>Submit</button>
+                    <button type="submit" disabled={state.submitting}>Submit</button>
                 </form>
                 </div>
                 
                 <div className="TextHowItWorkSection">
     
-                    <h3>Nursing Homes </h3>
+                    <h3 style={location.pathname === "/about-us" ? {color:'#e99500'}:{}}>Nursing Homes </h3>
 
                     <p>
                We bring licensed barbers directly to your facility. 
@@ -61,10 +63,11 @@ function HowItWorks(){
         </div>
         <div id="Tab2" className={isActiveTab == 'Tab2' ? "TabSection open" : "TabSection"}>
             <div className="FormHowItWorkSection" >
-                  <form  method='POST'>
+                  <form  method='POST' >
                     <h5>Sign Up Form</h5>
                     <br/>
                     <br/>
+                  
                     <div>
                         <label className='labelForm'>Full Name</label><br/>
                         <input type='name' placeholder='Your name' name="name" required/> <br/>
@@ -79,7 +82,7 @@ function HowItWorks(){
                     </div> 
                     <div>
                         <label className='labelForm'> Area of Service</label><br/>
-                        <input type='text' placeholder='Area of work' required/> <br/>
+                        <input type='text' placeholder='Area of work' name='ariaOfWork' required/> <br/>
                     </div>
                     <button>Submit</button>
                 </form>
@@ -87,7 +90,7 @@ function HowItWorks(){
                 
                 <div className="TextHowItWorkSection">
     
-                    <h3>Barbers </h3>
+                    <h3 style={location.pathname === "/about-us" ? {color:'#e99500'}:{}}>Barbers </h3>
 
                     <p>
                Wayanda CareConnect offers flexible opportunities for licensed barbers to give back and earn by serving seniors in local nursing homes.
@@ -98,8 +101,8 @@ function HowItWorks(){
                 </div>
         </div>
     <span className="LineColored1" style={location.pathname === "/about-us" ? {backgroundColor:'#1781eb'}:{}}> </span>
-
-    </div>
+        <span className="LineColored2" > </span>
+   </div>
     
 )
 }

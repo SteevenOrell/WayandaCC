@@ -10,7 +10,7 @@ function AboutUsHeroSection(){
                     <h3><FadeInAnimation> {"ABOUT US"}</FadeInAnimation> </h3>
                     <p><FadeInAnimation> {"WE DELIVER DIGNITY AND CARE"}</FadeInAnimation></p>
                 </div>
-                <div className="Hero2Animation3D">
+                <div className="Hero2Animation3D" id="AboutUsHeroSection">
                                  <video autoPlay loop muted playsInline>
                                                 <source src={aboutUsHeroSectionImg} type="video/mp4"/>
                                     </video>

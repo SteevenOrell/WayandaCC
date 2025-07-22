@@ -1,4 +1,5 @@
 import {Link, useLocation,Outlet} from 'react-router-dom'
+import { HashLink } from 'react-router-hash-link'
 
 function Footer(){
     return(
@@ -10,9 +11,10 @@ function Footer(){
                     <a href="#"  class="flex justify-center lg:justify-start">
                     <h4 class="text-lg text-gray-900 font-medium mb-7">WCC</h4>
                     </a>
-                    <p class="text-sm text-gray-700 leading-6 mb-7">We make personal care mobile, professional and rooted in respect.</p>
+                    <p class="text-sm text-gray-700 leading-6 mb-7">We make personal care mobile, professional and rooted in respect. One haircut at a time</p>
      
                 </div>
+               
                 <div class="lg:mx-auto text-left">
                     <h4 class="text-lg text-gray-900 font-medium mb-7">Legal & Trust Notes</h4>
                     <p class="text-sm text-gray-700 leading-6 mb-7">All barbers are vetted and adhere to our hygiene and dignity-first care policy. We value your trust.</p>
@@ -21,9 +23,9 @@ function Footer(){
                 <div class="lg:mx-auto text-left ">
                     <h4 class="text-lg text-gray-900 font-medium mb-7">Other Links</h4>
                     <ul class="text-sm  transition-all duration-500">
-                        <li class="mb-6"><Link to="/"  class="text-gray-600 hover:text-gray-900">Home</Link></li>
-                        <li class="mb-6"><Link to="/about-us"  class=" text-gray-600 hover:text-gray-900">About Us</Link></li>
-                        <li><Link to="/#PricingSection"  class=" text-gray-600 hover:text-gray-900">Pricing</Link></li>
+                        <li class="mb-6"><HashLink to="/#HomeHeroSection"  class="text-gray-600 hover:text-gray-900">Home</HashLink></li>
+                        <li class="mb-6"><HashLink to="/about-us#AboutUsHeroSection"  class=" text-gray-600 hover:text-gray-900">About Us</HashLink></li>
+                        <li><HashLink to="/#PricingSection"  class=" text-gray-600 hover:text-gray-900">Pricing</HashLink></li>
                     </ul>
                 </div>
                 
@@ -36,7 +38,7 @@ function Footer(){
                     </ul>
                 </div>
 
-               
+              
 
             </div>
             
