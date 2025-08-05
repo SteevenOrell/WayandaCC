@@ -1,12 +1,36 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {Link, useLocation,Outlet} from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
+import logo from './Assets/logo3.png'
 function NavBar(){
 
     const [listOfContentsOpen,setOpenContents] = useState({"mobileMenu":false,"dropdownBar":false,"mobileDropdown":false });
     const [currentDropdownIndex,setCurrentDropdownIndex] = useState(-1)
     const [classNameOpen,setClassNameOfOpen] = useState("");
     const location = useLocation();
+
+    const [scrolled, setScrolled] = useState(false);
+
+  // useEffect hook to add and clean up the scroll event listener
+  useEffect(() => {
+    // Function to handle the scroll event
+    const handleScroll = () => {
+      // Check if the vertical scroll position is greater than 50 pixels
+      // You can adjust this value to change when the effect triggers
+      const isScrolled = window.scrollY > 50;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    // Add the event listener when the component mounts
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrolled]); // Re-run the effect if the scrolled state changes
 
 
     function handleCloseMenuDropdown(){
@@ -32,9 +56,10 @@ function NavBar(){
         setOpenContents({"mobileMenu":false, "dropdownBar":false,"mobileDropdown":false})
         setClassNameOfOpen("");
     }
+    
     return (
             <div id='nav-bar2-div'>
-            <div id="nav-bar2" style={listOfContentsOpen.mobileMenu ? {backgroundColor:"#1781eb84"} : {}}>
+            <div id="nav-bar2" style={listOfContentsOpen.mobileMenu ? {backgroundColor:"#1781eb84"} : scrolled ? { "WebkitBackdropFilter": "blur(4px)", "backdropFilter": "blur(4px)"} : {}} >
                 
                 {
                    listOfContentsOpen["mobileDropdown"] ?
@@ -48,7 +73,7 @@ function NavBar(){
                   </ul>
                   <ul id='Logo2'>
                       <li>
-                          { listOfContentsOpen.mobileMenu|| listOfContentsOpen["mobileDropdown"] ?"" :<HashLink to="/#HomeHeroSection"> WCC {/*<img id='HomeLogo' src={LogoImg} alt='Home logo' width="100" height="80" /> */} </HashLink>}
+                          { listOfContentsOpen.mobileMenu|| listOfContentsOpen["mobileDropdown"] ?"" :<HashLink to="/#HomeHeroSection"> <img id='HomeLogo' src={logo} alt='Logo WCC' width="110" height="110" />  </HashLink>}
                       </li>
                   </ul>
                 </>)
@@ -57,7 +82,7 @@ function NavBar(){
                   ( <>
                     <ul id='Logo2'>
                       <li>
-                          {  listOfContentsOpen["mobileDropdown"] ?"" :<HashLink to="/#HomeHeroSection"> WCC {/*<img id='HomeLogo' src={LogoImg} alt='Home logo' width="100" height="80" /> */} </HashLink>}
+                          {  listOfContentsOpen["mobileDropdown"] ?"" :<HashLink to="/#HomeHeroSection"> <img id='HomeLogo' src={logo} alt='Logo WCC' width="101" height="101" />   </HashLink>}
                       </li>
                   </ul>
 

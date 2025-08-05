@@ -4,6 +4,7 @@ import imgMission1 from './Assets/OurMissionImg1.png';
 import imgVision1 from './Assets/OurVisionImg1.png';
 import imgMission2 from './Assets/OurMissionImg2.png';
 import imgVision2 from './Assets/OurVisionImg2.png'
+import { FadeInAnimation } from "./FadeInAnimation";
 
 
 function MissionAndVision(){
@@ -19,9 +20,10 @@ function MissionAndVision(){
     },[])
     return(
         <>
+       
         <div className="ImgTxtDiv2">
 
-          
+           
             <div className="Text-ImgTxtSection2">
                 <h3>Our Mission </h3>
                 <p>

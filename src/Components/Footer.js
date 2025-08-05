@@ -1,56 +1,77 @@
-import {Link, useLocation,Outlet} from 'react-router-dom'
-import { HashLink } from 'react-router-hash-link'
+import {Link, useLocation,Outlet} from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
+import {useEffect, useState} from 'react';
+import logo from './Assets/LogoFinale.png'
 
 function Footer(){
-    return(
-<footer id="Footer2" class="w-full">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            
-            <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3 gap-y-8 md:gap-8 py-10 max-w-sm mx-auto sm:max-w-3xl lg:max-w-full">
-                <div class="col-span-full mb-10 lg:col-span-2 lg:mb-0">
-                    <a href="#"  class="flex justify-center lg:justify-start">
-                    <h4 class="text-lg text-gray-900 font-medium mb-7">WCC</h4>
-                    </a>
-                    <p class="text-sm text-gray-700 leading-6 mb-7">We make personal care mobile, professional and rooted in respect. One haircut at a time</p>
-     
-                </div>
-               
-                <div class="lg:mx-auto text-left">
-                    <h4 class="text-lg text-gray-900 font-medium mb-7">Legal & Trust Notes</h4>
-                    <p class="text-sm text-gray-700 leading-6 mb-7">All barbers are vetted and adhere to our hygiene and dignity-first care policy. We value your trust.</p>
 
-                </div>
-                <div class="lg:mx-auto text-left ">
-                    <h4 class="text-lg text-gray-900 font-medium mb-7">Other Links</h4>
-                    <ul class="text-sm  transition-all duration-500">
-                        <li class="mb-6"><HashLink to="/#HomeHeroSection"  class="text-gray-600 hover:text-gray-900">Home</HashLink></li>
-                        <li class="mb-6"><HashLink to="/about-us#AboutUsHeroSection"  class=" text-gray-600 hover:text-gray-900">About Us</HashLink></li>
-                        <li><HashLink to="/#PricingSection"  class=" text-gray-600 hover:text-gray-900">Pricing</HashLink></li>
-                    </ul>
-                </div>
+    const [width,setWidth] = useState(window.innerWidth);
+         
+    useEffect(()=>{
+            function handleResize() {
+                setWidth(window.innerWidth);
                 
-                <div class="lg:mx-auto text-left ">
-                    <h4 class="text-lg text-gray-900 font-medium mb-7">Contact Us </h4>
-                    <ul class="text-sm  transition-all duration-500">
-                        <li class="mb-6"><a href="mailto:wayandacareconnect@gmail.com"  class="text-gray-600 hover:text-gray-900">Business Email</a></li>
-                        {/* <li class="mb-6"><a href="javascript:;"  class=" text-gray-600 hover:text-gray-900"></a></li> */}
-                        {/* <li><a href="javascript:;"  class=" text-gray-600 hover:text-gray-900"></a></li> */}
-                    </ul>
-                </div>
+              }
+              window.addEventListener("resize", handleResize)
+              handleResize();
+    },[])
 
-              
+    return(
+ <>
+   <footer id="Footer2" className="w-full">
+             <div className='LogoFooterDiv'>
+                <ul>
+                 <li className='titlesInFooter'> <a href='#'><h5><img id='HomeLogo' src={logo} alt='Logo WCC' width="135" height="110" /></h5></a></li>
+                 <li className="mbmodified-6"><p className="text-sm text-gray-700 leading-6 mbmodified-7">We make personal care mobile, professional and rooted in respect.<br/> One haircut at a time</p>
+                    </li>
+                </ul>
+             </div>
+             {
+                width<450 ?
+                <div className='OtherFooterDiv'>
+                 <ul>
+                     <li className='titlesInFooter'><h5> Legal & Trust Note</h5></li>
+                     <li className="mbmodified-6"><p className="text-sm text-gray-700 leading-6 mbmodified-7">All barbers are vetted and adhere to our hygiene and dignity-first care policy. We value your trust.</p></li>
+                 </ul>
+                </div> :
+                <></>
+             }
+             <div className='OtherLinks'>
+             { width >= 450 ?
+             <div className='OtherFooterDiv'>
+                 <ul>
+                     <li className='titlesInFooter'><h5> Legal & Trust Note</h5></li>
+                     <li className="mbmodified-6"><p className="text-sm text-gray-700 leading-6 mbmodified-7">All barbers are vetted and adhere to our hygiene and dignity-first care policy. We value your trust.</p></li>
+                 </ul>
+             </div> : <></>}
+             <div className='OtherFooterDiv'>
+                 <ul>
+                    <li className='titlesInFooter'><h5>  Other Links </h5></li>
+                    <li className="mbmodified-6"><HashLink to="/#HomeHeroSection"  >Home</HashLink></li>
+                    <li className="mbmodified-6"><HashLink to="/about-us#AboutUsHeroSection"  >About Us</HashLink></li>
+                    <li className="mbmodified-6"><HashLink to="/#PricingSection"  >Pricing</HashLink></li>   
+                 </ul>
+             </div>
+                <div className='OtherFooterDiv'>
+                <ul>
+                                    
+                    <li className='titlesInFooter'><h5 >Contact Us </h5></li>
+                    <li className="mbmodified-6"><a href="mailto:wayandacareconnect@gmail.com"  >Business Email</a></li>
+                </ul>
+                        
+             </div>
+             </div>
 
-            </div>
-            
-            <div class="py-7 border-t border-gray-200">
-                <div class="flex items-center justify-center flex-col lg:justify-between lg:flex-row">
-                    <span class="text-sm text-gray-500 ">©<Link to="/">WCC </Link> {new Date().getFullYear()}, All rights reserved.</span>
+            <Outlet/>
+     </footer>
+
+       <div id='AllRightReserved'>
+            <span>©WCC {new Date().getFullYear()}, All rights reserved.</span>
         
-                </div>
-            </div>
-        </div>
-        <Outlet/>
-    </footer>)
+        </div> 
+
+            </>
+)
 }
 
 export default Footer
