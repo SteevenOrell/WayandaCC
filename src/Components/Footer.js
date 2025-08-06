@@ -22,7 +22,7 @@ function Footer(){
              <div className='LogoFooterDiv'>
                 <ul>
                  <li className='titlesInFooter'> <a href='#'><h5><img id='HomeLogo' src={logo} alt='Logo WCC' width="135" height="110" /></h5></a></li>
-                 <li className="mbmodified-6"><p className="text-sm text-gray-700 leading-6 mbmodified-7">We make personal care mobile, professional and rooted in respect.<br/> One haircut at a time</p>
+                 <li className="mbmodified-6"><p className="text-sm text-gray-700 leading-6 mbmodified-7">We make personal care mobile, professional and rooted in respect. {width> 500 ? <br/>: <></>} One haircut at a time</p>
                     </li>
                 </ul>
              </div>
