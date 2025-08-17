@@ -1,7 +1,7 @@
 import {Link, useLocation,Outlet} from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import {useEffect, useState} from 'react';
-import logo from './Assets/LogoFinale.png'
+import logo from './Assets/logo3.png'
 
 function Footer(){
 
@@ -21,7 +21,7 @@ function Footer(){
    <footer id="Footer2" className="w-full">
              <div className='LogoFooterDiv'>
                 <ul>
-                 <li className='titlesInFooter'> <a href='#'><h5><img id='HomeLogo' src={logo} alt='Logo WCC' width="135" height="110" /></h5></a></li>
+                 <li className='titlesInFooter'> <a href='#'><h5><img id='HomeLogo' src={logo} alt='Logo WCC' width="70" height="70" /></h5></a></li>
                  <li className="mbmodified-6"><p className="text-sm text-gray-700 leading-6 mbmodified-7">We make personal care mobile, professional and rooted in respect. {width> 500 ? <br/>: <></>} One haircut at a time</p>
                     </li>
                 </ul>

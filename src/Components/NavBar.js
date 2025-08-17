@@ -73,7 +73,7 @@ function NavBar(){
                   </ul>
                   <ul id='Logo2'>
                       <li>
-                          { listOfContentsOpen.mobileMenu|| listOfContentsOpen["mobileDropdown"] ?"" :<HashLink to="/#HomeHeroSection"> <img id='HomeLogo' src={logo} alt='Logo WCC' width="110" height="110" />  </HashLink>}
+                          { listOfContentsOpen.mobileMenu|| listOfContentsOpen["mobileDropdown"] ?"" :<HashLink to="/#HomeHeroSection"> <img id='HomeLogo' src={logo} alt='Logo WCC' width="75" height="75" />  </HashLink>}
                       </li>
                   </ul>
                 </>)
@@ -82,7 +82,7 @@ function NavBar(){
                   ( <>
                     <ul id='Logo2'>
                       <li>
-                          {  listOfContentsOpen["mobileDropdown"] ?"" :<HashLink to="/#HomeHeroSection"> <img id='HomeLogo' src={logo} alt='Logo WCC' width="101" height="101" />   </HashLink>}
+                          {  listOfContentsOpen["mobileDropdown"] ?"" :<HashLink to="/#HomeHeroSection"> <img id='HomeLogo' src={logo} alt='Logo WCC' width="90" height="90" />   </HashLink>}
                       </li>
                   </ul>
 
