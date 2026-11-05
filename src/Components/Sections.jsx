@@ -1,24 +1,21 @@
-import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
-import { useReducedMotion } from 'motion/react';
 import { Reveal, MaskedLines } from './Reveal';
-import { IMAGES, MISSION, VISION, STEPS, VALUES } from '../content/site';
-import aboutVideo from './Assets/MainAboutUsVid.mp4';
+import { IMAGES, MISSION, VISION, STEPS } from '../content/site';
 
 export function HomeHero() {
   return (
     <section className="hero" aria-labelledby="hero-title">
       <div className="hero__media">
         <picture>
-          <source media="(max-width: 700px)" srcSet={IMAGES.heroPortrait.src} />
-          <img src={IMAGES.heroLandscape.src} alt={IMAGES.heroLandscape.alt} fetchPriority="high" width="1920" height="1200" />
+          <source media="(max-width: 700px)" srcSet={IMAGES.heroHome.mobile} width="1000" height="1500" />
+          <img src={IMAGES.heroHome.src} alt={IMAGES.heroHome.alt} fetchPriority="high" width="1672" height="941" />
         </picture>
       </div>
       <div className="container hero__content">
         <div className="hero__grid">
           <div>
             <p className="eyebrow">Mobile barbers for nursing homes · Ontario</p>
-            <MaskedLines as="h1" className="display hero__title" lines={['Where dignity', 'meets care.']} />
+            <MaskedLines as="h1" id="hero-title" className="display hero__title" lines={['Where dignity', 'meets care.']} />
           </div>
           <Reveal className="hero__side" delay={0.4}>
             <p>We connect skilled, compassionate barbers with nursing homes to offer in-home haircuts for residents.</p>
@@ -37,32 +34,13 @@ export function HomeHero() {
   );
 }
 
-export function Marquee() {
-  const group = (hidden) => (
-    <ul className="marquee__group" aria-hidden={hidden || undefined}>
-      {VALUES.map((v) => (
-        <li key={v}>{v}</li>
-      ))}
-    </ul>
-  );
-  return (
-    <div className="marquee">
-      <p className="sr-only">Our commitments: {VALUES.join(', ')}.</p>
-      <div className="marquee__track" aria-hidden="true">
-        {group(true)}
-        {group(true)}
-      </div>
-    </div>
-  );
-}
-
 export function MissionSplit() {
   return (
     <section className="section section--paper" aria-labelledby="mission-title">
       <div className="grid-lines" aria-hidden="true" />
       <div className="container split">
         <Reveal className="split__media">
-          <img src={IMAGES.seniorPortrait.src} alt={IMAGES.seniorPortrait.alt} loading="lazy" width="1100" height="1300" />
+          <img src={IMAGES.mission1.src} alt={IMAGES.mission1.alt} loading="lazy" width="567" height="577" />
         </Reveal>
         <div className="split__body">
           <div className="split__head">
@@ -171,7 +149,7 @@ export function JoinCta() {
       <div className="grid-lines" aria-hidden="true" />
       <div className="container join">
         <Reveal className="join__media">
-          <img src={IMAGES.barberAtWork.src} alt={IMAGES.barberAtWork.alt} loading="lazy" width="1200" height="1500" />
+          <img src={IMAGES.vision1.src} alt={IMAGES.vision1.alt} loading="lazy" width="569" height="567" />
         </Reveal>
         <Reveal className="join__text" delay={0.1}>
           <p className="eyebrow accent">For barbers</p>
@@ -196,39 +174,17 @@ export function JoinCta() {
 }
 
 export function AboutHero() {
-  const reduce = useReducedMotion();
-  const videoRef = useRef(null);
-  const [playing, setPlaying] = useState(!reduce);
-
-  useEffect(() => {
-    const v = videoRef.current;
-    if (!v) return;
-    if (playing) {
-      const p = v.play?.();
-      if (p && typeof p.catch === 'function') p.catch(() => setPlaying(false));
-    } else {
-      v.pause?.();
-    }
-  }, [playing]);
-
   return (
     <section className="hero hero--compact" aria-labelledby="about-title">
       <div className="hero__media">
-        <video ref={videoRef} muted loop playsInline autoPlay={!reduce} preload="metadata" aria-hidden="true" tabIndex={-1}>
-          <source src={aboutVideo} type="video/mp4" />
-        </video>
+        <picture>
+          <source media="(max-width: 700px)" srcSet={IMAGES.heroAbout.mobile} width="1000" height="1498" />
+          <img src={IMAGES.heroAbout.src} alt="" fetchPriority="high" width="2000" height="1333" />
+        </picture>
       </div>
-      <button
-        type="button"
-        className="btn btn--ghost hero__video-toggle"
-        onClick={() => setPlaying((p) => !p)}
-        aria-pressed={!playing}
-      >
-        {playing ? 'Pause video' : 'Play video'}
-      </button>
       <div className="container hero__content">
         <p className="eyebrow">About us</p>
-        <MaskedLines as="h1" className="display hero__title" lines={['We deliver', 'dignity', 'and care.']} />
+        <MaskedLines as="h1" id="about-title" className="display hero__title" lines={['We deliver', 'dignity', 'and care.']} />
       </div>
     </section>
   );
@@ -268,8 +224,8 @@ export function FounderStory() {
 
 export function Statements() {
   const items = [
-    { label: 'Our mission', title: 'Restore dignity', text: MISSION },
-    { label: 'Our vision', title: 'Every home served', text: VISION },
+    { label: 'Our mission', title: 'Restore dignity', text: MISSION, image: IMAGES.mission2 },
+    { label: 'Our vision', title: 'Every home served', text: VISION, image: IMAGES.vision2 },
   ];
   return (
     <section className="section section--paper section--tight" aria-label="Mission and vision">
@@ -280,6 +236,9 @@ export function Statements() {
               <p className="eyebrow" style={{ margin: 0 }}>{s.label}</p>
               <h2 className="h3">{s.title}</h2>
               <p>{s.text}</p>
+              <div className="statement__media">
+                <img src={s.image.src} alt={s.image.alt} loading="lazy" width="490" height="490" />
+              </div>
             </Reveal>
           ))}
         </div>

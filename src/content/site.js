@@ -1,9 +1,13 @@
 // Central copy + media credits so content edits don't require touching layout code.
-import heroLandscape from '../assets/images/hero-barber-senior.webp';
-import heroPortrait from '../assets/images/hero-barber-senior-portrait.webp';
-import seniorPortrait from '../assets/images/senior-portrait.webp';
+import heroHome from '../assets/images/hero-home.webp';
+import heroHomeMobile from '../assets/images/hero-home-mobile.webp';
+import heroAbout from '../assets/images/hero-about.webp';
+import heroAboutMobile from '../assets/images/hero-about-mobile.webp';
+import mission1 from '../assets/images/mission-1.webp';
+import mission2 from '../assets/images/mission-2.webp';
+import vision1 from '../assets/images/vision-1.webp';
+import vision2 from '../assets/images/vision-2.webp';
 import barberTools from '../assets/images/barber-tools.webp';
-import barberAtWork from '../assets/images/barber-at-work.webp';
 
 export const CONTACT_EMAIL = 'wayandacareconnect@gmail.com';
 
@@ -14,14 +18,6 @@ export const NAV_LINKS = [
   { label: 'Contact', to: '#contact' },
 ];
 
-export const VALUES = [
-  'Dignity first',
-  'Licensed, vetted barbers',
-  'Travel & setup included',
-  'Strict hygiene protocols',
-  'Serving care homes across Ontario',
-  'One haircut at a time',
-];
 
 export const MISSION =
   'To restore dignity, connection, and confidence to our elders by offering professional, mobile grooming services in the comfort of their care homes.';
@@ -44,20 +40,15 @@ export const STEPS = [
 ];
 
 export const IMAGES = {
-  heroLandscape: {
-    src: heroLandscape,
-    alt: 'An older barber in glasses carefully trims the hair of a senior man in a classic barber chair.',
+  heroHome: {
+    src: heroHome,
+    mobile: heroHomeMobile,
+    alt: 'A barber in glasses trims the hair of a smiling senior man in a classic barbershop.',
   },
-  heroPortrait: { src: heroPortrait },
-  seniorPortrait: { src: seniorPortrait, alt: 'Portrait of a smiling senior man in a cardigan, sitting at home.' },
+  heroAbout: { src: heroAbout, mobile: heroAboutMobile },
+  mission1: { src: mission1, alt: 'A hairdresser trims a senior woman’s short grey hair with scissors and a comb.' },
+  mission2: { src: mission2, alt: 'A barber trims a reclining man’s grey beard with scissors.' },
+  vision1: { src: vision1, alt: 'A barber carefully grooms an older man’s beard.' },
+  vision2: { src: vision2, alt: 'A barber holding a comb stands beside an older man seated in the chair.' },
   barberTools: { src: barberTools, alt: 'Scissors, clippers, guards, a comb and a razor laid out neatly on an orange surface.' },
-  barberAtWork: { src: barberAtWork, alt: 'A barber cuts a client’s hair with clippers in front of an old mirror on a brick wall.' },
 };
-
-// Unsplash License: free to use; attribution is appreciated, not required.
-export const CREDITS = [
-  { who: 'Tim Mossholder', profile: 'https://unsplash.com/@timmossholder', photo: 'https://unsplash.com/photos/okvy6zpdifw' },
-  { who: 'Vitaly Gariev', profile: 'https://unsplash.com/@silverkblack', photo: 'https://unsplash.com/photos/okF-Uz_U0Yg' },
-  { who: 'Sinval Carvalho', profile: 'https://unsplash.com/@sinvalbmx', photo: 'https://unsplash.com/photos/WbEibGKHBMY' },
-  { who: 'cheng feng', profile: 'https://unsplash.com/@chengfengrecord', photo: 'https://unsplash.com/photos/Dqk_vFqUj0o' },
-];

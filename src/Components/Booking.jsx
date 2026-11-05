@@ -146,8 +146,7 @@ function BookingForm({ kind }) {
         </button>
       </div>
       <p id={id('privacy')} className="form__privacy">
-        We use these details only to respond to your request. They are sent by email through our form provider (EmailJS) and are
-        not stored on this website.
+        We use these details only to respond to your request. They are sent by email and are not stored on this website.
       </p>
     </form>
   );

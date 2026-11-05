@@ -29,11 +29,11 @@ export function Reveal({ children, delay = 0, y = 28, as = 'div', className, ...
 }
 
 /** Headline whose lines slide up from behind a mask on mount. */
-export function MaskedLines({ lines, as = 'h1', className, delay = 0.15 }) {
+export function MaskedLines({ lines, as = 'h1', id, className, delay = 0.15 }) {
   const reduce = useReducedMotion();
   const Heading = as;
   return (
-    <Heading className={className}>
+    <Heading id={id} className={className}>
       {lines.map((line, i) => (
         <span className="line-mask" key={line}>
           {reduce ? (

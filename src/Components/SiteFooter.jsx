@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import logo from './Assets/logo3.png';
-import { CONTACT_EMAIL, CREDITS } from '../content/site';
+import { CONTACT_EMAIL } from '../content/site';
 import { Reveal } from './Reveal';
 
 export default function SiteFooter() {
@@ -55,15 +55,6 @@ export default function SiteFooter() {
 
         <div className="site-footer__bottom">
           <p>© {new Date().getFullYear()} Wayanda CareConnect. All rights reserved.</p>
-          <p>
-            Photography via Unsplash:{' '}
-            {CREDITS.map((c, i) => (
-              <span key={c.who}>
-                <a href={c.profile} rel="noopener noreferrer">{c.who}</a>
-                {i < CREDITS.length - 1 ? ', ' : ''}
-              </span>
-            ))}
-          </p>
         </div>
       </div>
     </footer>
