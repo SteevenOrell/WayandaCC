@@ -1,27 +1,31 @@
-import { Outlet, Link } from "react-router-dom";
-import NavBar from "../Components/NavBar";
-import Footer from "../Components/Footer";
-function ErrorPage(){
-    return (<>
-        
-          <main className="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
-        <div className="text-center">
-          <h5 className="text-base font-semibold text-dark-600">404</h5>
-          <h3 className="mt-4 text-3xl font-medium tracking-tight text-dark-900 sm:text-5xl">Page not found</h3>
-          <p className="mt-6 text-base leading-7 text-dark-600">Sorry, we couldn’t find the page you’re looking for.</p>
-          <div className="mt-10 flex items-center justify-center gap-x-6">
-            <Link to="/"
-              className="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-medium text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >
-              Go back home
-            </Link>
+import { Link } from 'react-router-dom';
 
-          </div>
+function ErrorPage() {
+  return (
+    <section className="section section--paper" aria-labelledby="nf-title">
+      <div className="grid-lines" aria-hidden="true" />
+      <div className="container not-found">
+        <p className="eyebrow">Error 404</p>
+        <h1 id="nf-title">
+          <span className="display" style={{ display: 'block' }} aria-hidden="true">
+            404
+          </span>
+          <span className="h2" style={{ display: 'block' }}>
+            Page not found
+          </span>
+        </h1>
+        <p className="lede muted">Sorry, we couldn’t find the page you’re looking for. It may have moved, or the link may be mistyped.</p>
+        <div className="hero__actions">
+          <Link to="/" className="btn">
+            Go back home <span className="arrow" aria-hidden="true">→</span>
+          </Link>
+          <Link to="/#book" className="btn btn--ghost">
+            Book a visit
+          </Link>
         </div>
-        <Outlet/>
-      </main>
-      <Footer/>
-    </>)
+      </div>
+    </section>
+  );
 }
 
 export default ErrorPage;

@@ -1,20 +1,17 @@
-import AboutUsHeroSection from "../Components/AboutUsHeroSection";
-import Footer from "../Components/Footer";
-import FounderStory from "../Components/FounderStory";
-import HowItWorks from "../Components/HowItWorks";
-import MissionAndVision from "../Components/MissionAndVision";
-import NavBar from "../Components/NavBar";
+import Booking from '../Components/Booking';
+import { AboutHero, FounderStory, Statements, Marquee, HowItWorks } from '../Components/Sections';
 
-function AboutUs(){
-
-    return(<>
-        <NavBar/>
-        <AboutUsHeroSection/>
-        <FounderStory/>
-        <MissionAndVision/>
-        <HowItWorks/>
-        <Footer/>
-        </>)
+function AboutUs() {
+  return (
+    <>
+      <AboutHero />
+      <Marquee />
+      <FounderStory />
+      <Statements />
+      <HowItWorks />
+      <Booking />
+    </>
+  );
 }
 
 export default AboutUs;
