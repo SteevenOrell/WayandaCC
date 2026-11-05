@@ -5,7 +5,7 @@ import { PrimeReactProvider } from 'primereact/api';
 import 'primeflex/primeflex.css';
 import 'primereact/resources/primereact.css';
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
-import emailjs from '@emailjs/browser';
+import { validateSubmission, sendSubmission } from '../lib/booking';
 
 function HowItWorks(){
     const [isActiveTab,setActiveTab] = useState('Tab1');
@@ -26,60 +26,24 @@ function HowItWorks(){
 
 function handleSubmit(e){
     e.preventDefault();
-    let currenDateTime = new Date()
-    let formSelected = form1.current;
-    
-    if(e.target.id == "formTab2"){
-        formSelected = form2.current
+    const formEl = e.currentTarget;
+    const kind = formEl.id === 'formTab2' ? 'barber' : 'nursing-home';
+    const result = validateSubmission(kind, Object.fromEntries(new FormData(formEl)));
+    if (result.bot) { formEl.reset(); return; }
+    if (!result.ok) {
+        toast.current.show({severity:'error', summary: 'Error', detail: result.error, life: 5000});
+        return;
     }
-    const formData = new FormData(formSelected);
-    const dateValue = new Date(formData.get('date'));
-    currenDateTime.setHours(currenDateTime.getHours()+3) //can book at least 3 hours in advance from today's time
-    
-    if(dateValue >= currenDateTime){
-        currenDateTime.setMonth(currenDateTime.getMonth()+3);
-        
-        if(dateValue > currenDateTime ){
-
-            toast.current.show({severity:'error', summary: 'Error', detail:'Booking or availability must be made within the next 3 months, no longer.', life: 5000});
+    sendSubmission(result.params).then(
+        () => {
+            toast.current.show({ severity: 'info', summary: 'Thank you', detail: 'Your information was successfully sent.', life: 5000 });
+            formEl.reset();
+        },
+        () => {
+            toast.current.show({severity:'error', summary: 'Error', detail:'Could not send your information. Please try again later or email us.', life: 5000});
         }
-        else if(dateValue.getHours()<6 || dateValue.getHours()>20  ){
-            toast.current.show({severity:'error', summary: 'Error', detail:'Booking or availability must be between 7am to 8pm.', life: 5000});
-      
-        }
-        else{
-
-            emailjs.sendForm(
-                process.env.REACT_APP_EMAILJS_SERVICE_ID,
-                process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-                formSelected,
-                {publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY,}
-            )
-            .then(
-                (result) => {
-                console.log('SUCCESS!', result);
-                toast.current.show({ severity: 'info', summary: 'Thank you', detail: 'Your information was successfully sent.', life: 5000 })
-
-
-                formSelected.reset();
-                },
-                (error) => {
-                console.log('FAILED...', error);
-
-                toast.current.show({severity:'error', summary: 'Error', detail:'Couldn\'t send your information.', life: 5000});
-
-                }
-            );
-
-        }
-    }
-    else{
-        toast.current.show({severity:'error', summary: 'Error', detail:'Booking or availability needs to be at least 3 hours in advance from now.', life: 5000});
-    }
-    
-
-
-    }
+    );
+}
 
     return(
     <div id="HowItWorksSection" >
