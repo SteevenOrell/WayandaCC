@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { useReducedMotion } from 'motion/react';
 import { Reveal, MaskedLines } from './Reveal';
 import { IMAGES, MISSION, VISION, STEPS, VALUES } from '../content/site';

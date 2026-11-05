@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import logo from './Assets/logo3.png';
 import { CONTACT_EMAIL, CREDITS } from '../content/site';
 import { Reveal } from './Reveal';

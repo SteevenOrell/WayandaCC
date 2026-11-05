@@ -1,5 +1,5 @@
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 import { validateSubmission, sendSubmission, LIMITS } from '../lib/booking';
 import { isEmailConfigured } from '../lib/config';
 import { CONTACT_EMAIL } from '../content/site';
