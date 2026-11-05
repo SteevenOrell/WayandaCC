@@ -13,7 +13,9 @@ prodHeaders['Content-Security-Policy'] = prodHeaders['Content-Security-Policy']?
 
 export default defineConfig({
   plugins: [react()],
-  server: { port: 3000 },
+  // allowedHosts lets the dev server answer through a VS Code / Dev Tunnels URL for
+  // phone testing (dev server only; production builds are unaffected).
+  server: { port: 3000, allowedHosts: ['.devtunnels.ms'] },
   preview: { port: 4173, headers: prodHeaders },
   build: {
     outDir: 'dist',
